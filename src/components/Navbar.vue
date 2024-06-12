@@ -14,11 +14,11 @@
 
                 <li>
                     <router-link 
-                    :to="`/pages/create`"
+                    :to="`/pages`"
                     class="nav-link" 
                     active-class="active"
                     aria-current="page"
-                    >Create Page</router-link>
+                    >Pages</router-link>
                 </li>
             </ul>
             <form action="" class="d-flex">
@@ -37,7 +37,9 @@ import NavbarLink from './NavbarLink.vue';
 export default {
     components: {
         NavbarLink
-    },
+    },    
+    
+    inject: ['$pages'],
 
     created(){
         this.getThemeSetting();

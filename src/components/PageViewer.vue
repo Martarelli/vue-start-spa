@@ -1,24 +1,22 @@
 <template>
-    <div class="container">
+    <div v-if="page" class="container pt-3">
         <h1 class="emphasize">{{page.pageTitle}}</h1>
         <p>{{page.content}}</p>
     </div>    
 </template>
 
 <script>
-    export default {
-        props: {
-            page : {
-                type: Object, 
-                default(rawProps) {
-                    return {
-                        pageTitle: '',
-                        content: ''
-                    };
-                }
-            }
-        }
+export default {
+    created(){
+        this.page = this.$pages.getSinglePage(this.$route.params.index);
+    },
+
+    data() {
+        return {
+            page: null
+        };
     }
+}
 </script>
 
 <style scoped>
